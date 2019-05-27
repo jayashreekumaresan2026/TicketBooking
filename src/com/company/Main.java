@@ -21,6 +21,7 @@ public class Main {
     public static void main(String[] args) {
         int totalCost = 0;
         Scanner keyBoard = new Scanner(System.in);
+        TicketCostCalculation costCalculation=new TicketCostCalculation();
         DisplayDetails details = new DisplayDetails();
         ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
         details.listOfRoutes(routes);
@@ -36,7 +37,7 @@ public class Main {
             System.out.println("Enter the detail for the passenger " + (i + 1));
             Passenger passengerDetails = Main.userInput(source, destination);
             passengers.add(passengerDetails);
-            totalCost = passengerDetails.tickCostCalculation(routes, numberOfPassenger);
+            totalCost = costCalculation.tickCostCalculation(routes, numberOfPassenger,source,destination);
         }
         details.passengerDetails(passengers);
         details.ticketDetails(totalCost, numberOfPassenger);

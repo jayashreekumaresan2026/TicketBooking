@@ -18,15 +18,5 @@ public class Passenger {
         this.destination = destination;
     }
 
-    int tickCostCalculation(ArrayList<String> routes,int numberOfPassenger) {
-       int count = 0;
-       int totalCost;
-       for (int i = 0; i < routes.size(); i++) {
-           if ((!routes.get(i).equalsIgnoreCase(source)) && (!routes.get(i).equalsIgnoreCase(destination))) {
-               count = count + 1;
-           }
-       }
-       totalCost = (count + 2) * numberOfPassenger;
-       return totalCost;
-   }
+
 }

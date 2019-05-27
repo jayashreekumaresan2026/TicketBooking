@@ -13,7 +13,7 @@ class DisplayDetails {
 
     void passengerDetails(List<Passenger> passengers) {
         System.out.println("Passenger Details");
-        System.out.println("Sno " + "Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
+        System.out.println("Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
         for (Passenger passenger : passengers) {
             displayPassengerDetails(passenger);
         }
