@@ -1,17 +1,22 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 
 class TicketCostCalculation {
-    int tickCostCalculation(ArrayList<String> routes, int numberOfPassenger,String source,String destination) {
+    int tickCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers) {
         int count = 0;
-        int totalCost;
-        for (int i = 0; i < routes.size(); i++) {
-            if ((!routes.get(i).equalsIgnoreCase(source)) && (!routes.get(i).equalsIgnoreCase(destination))) {
-                count = count + 1;
+        int totalCost = 0;
+
+        for (String route : routes) {
+            if ((!route.equalsIgnoreCase(source)) && (!route.equalsIgnoreCase(destination))) {
+                count += 1;
             }
         }
-        totalCost = (count + 2) * numberOfPassenger;
+        count += 2;
+        for (Passenger passenger : passengers) {
+            totalCost += passenger.age <= 12 || passenger.age >= 60 ? count / 2 : count;
+        }
         return totalCost;
     }
 }
