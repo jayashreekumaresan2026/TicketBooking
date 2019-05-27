@@ -1,11 +1,13 @@
 package com.company;
-import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static Passenger userInput(String source, String destination) {
+
+    private static Passenger userInput(String source, String destination) {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.print("enter your name :");
@@ -14,15 +16,14 @@ public class Main {
         int age = Integer.parseInt(keyboard.nextLine());
         System.out.print("enter your gender :");
         String gender = keyboard.nextLine();
-        Passenger passengerDetail = new Passenger(name, age, gender, source, destination);
-        return passengerDetail;
+        return new Passenger(name, age, gender, source, destination);
     }
 
     public static void main(String[] args) {
         Scanner keyBoard = new Scanner(System.in);
-        DisplayDetails details =new DisplayDetails();
-        ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Tirusulam", "Meenambakkam"));
-        details. listOfRoutes(routes);
+        DisplayDetails details = new DisplayDetails();
+        ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
+        details.listOfRoutes(routes);
         System.out.println();
         System.out.print("enter you Source :");
         String source = keyBoard.nextLine();
@@ -36,8 +37,16 @@ public class Main {
             Passenger passengerDetails = Main.userInput(source, destination);
             passengers.add(passengerDetails);
         }
-        details.displayPassengerDetails(passengers);
+        int count = 0;
+        int totalCost;
+        for (int i = 0; i < routes.size(); i++) {
+            if ((!routes.get(i).equalsIgnoreCase(source)) && (!routes.get(i).equalsIgnoreCase(destination))) {
+                count = count + 1;
+            }
+        }
+        totalCost = (count + 2) * numberOfPassenger;
+        details.passengerDetails(passengers);
+        details.ticketDetails(totalCost, numberOfPassenger);
     }
-
 }
 
