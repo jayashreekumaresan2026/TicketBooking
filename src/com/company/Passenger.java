@@ -1,8 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
 
-public class Passenger {
+class Passenger {
 
     String name;
     int age;
@@ -17,6 +16,4 @@ public class Passenger {
         this.source = source;
         this.destination = destination;
     }
-
-
 }

@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class TicketCostCalculation {
+class TicketCostCalculation {
     int tickCostCalculation(ArrayList<String> routes, int numberOfPassenger,String source,String destination) {
         int count = 0;
         int totalCost;

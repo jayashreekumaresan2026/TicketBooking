@@ -23,8 +23,8 @@ class DisplayDetails {
         System.out.println(passengers.name + " \t" + passengers.age + "   \t" + passengers.gender + "  \t" + passengers.source + "  \t" + passengers.destination);
     }
 
-    void ticketDetails(int totalCost, int numberOfpassenger) {
-        System.out.println("Number of passenger :" + numberOfpassenger);
+    void ticketDetails(int totalCost, int numberOfPassenger) {
+        System.out.println("Number of passenger :" + numberOfPassenger);
         System.out.println("Number of passenger :" + totalCost);
     }
 }
