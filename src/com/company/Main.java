@@ -9,7 +9,6 @@ public class Main {
 
     private static Passenger userInput(String source, String destination) {
         Scanner keyboard = new Scanner(System.in);
-
         System.out.print("enter your name :");
         String name = keyboard.nextLine();
         System.out.print("enter your age :");
@@ -20,6 +19,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        int totalCost = 0;
         Scanner keyBoard = new Scanner(System.in);
         DisplayDetails details = new DisplayDetails();
         ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
@@ -36,15 +36,8 @@ public class Main {
             System.out.println("Enter the detail for the passenger " + (i + 1));
             Passenger passengerDetails = Main.userInput(source, destination);
             passengers.add(passengerDetails);
+            totalCost = passengerDetails.tickCostCalculation(routes, numberOfPassenger);
         }
-        int count = 0;
-        int totalCost;
-        for (int i = 0; i < routes.size(); i++) {
-            if ((!routes.get(i).equalsIgnoreCase(source)) && (!routes.get(i).equalsIgnoreCase(destination))) {
-                count = count + 1;
-            }
-        }
-        totalCost = (count + 2) * numberOfPassenger;
         details.passengerDetails(passengers);
         details.ticketDetails(totalCost, numberOfPassenger);
     }

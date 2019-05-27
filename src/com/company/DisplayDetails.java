@@ -19,7 +19,7 @@ class DisplayDetails {
         }
     }
 
-    void displayPassengerDetails(Passenger passengers) {
+  private void displayPassengerDetails(Passenger passengers) {
         System.out.println(passengers.name + " \t" + passengers.age + "   \t" + passengers.gender + "  \t" + passengers.source + "  \t" + passengers.destination);
     }
 
