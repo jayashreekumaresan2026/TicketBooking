@@ -10,4 +10,15 @@ public class DisplayRoutes {
 
     }
 
+    void displayPassangerDetails(Passenger[] passengers) {
+        System.out.println("Passenger Details");
+        System.out.println("Sno "+"Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
+        for (int i = 0; i < passengers.length; i++)
+        {
+            System.out.println( i+1+" \t" +passengers[i].name+" \t"+passengers[i].age+"   \t"+passengers[i].gender+"  \t"+passengers[i].source+"  \t"+passengers[i].destination);
+        }
+
+
+    }
+
 }
