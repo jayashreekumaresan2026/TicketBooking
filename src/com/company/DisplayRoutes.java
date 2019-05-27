@@ -7,9 +7,7 @@ public class DisplayRoutes {
         for (String routes : Routes) {
             System.out.print(" -> " + routes);
         }
-
     }
-
     void displayPassangerDetails(Passenger[] passengers) {
         System.out.println("Passenger Details");
         System.out.println("Sno "+"Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
@@ -17,8 +15,5 @@ public class DisplayRoutes {
         {
             System.out.println( i+1+" \t" +passengers[i].name+" \t"+passengers[i].age+"   \t"+passengers[i].gender+"  \t"+passengers[i].source+"  \t"+passengers[i].destination);
         }
-
-
     }
-
 }
