@@ -1,20 +1,24 @@
 package com.company;
 
+import java.util.List;
 import java.util.ArrayList;
 
-public class DisplayDetails {
-    static void listOfRoutes(ArrayList<String> Routes) {
+class DisplayDetails {
+    void listOfRoutes(ArrayList<String> Routes) {
         for (String routes : Routes) {
             System.out.print(" -> " + routes);
         }
     }
 
-    static void displayPassangerDetails(Passenger[] passengers) {
+    void displayPassengerDetails(List<Passenger> passengers) {
         System.out.println("Passenger Details");
         System.out.println("Sno " + "Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
-        for (int i = 0; i < passengers.length; i++) {
-            System.out.println(i + 1 + " \t" + passengers[i].name + " \t" + passengers[i].age + "   \t" + passengers[i].gender + "  \t" + passengers[i].source + "  \t" + passengers[i].destination);
+        for (int i = 0; i < passengers.size(); i++) {
+            Passengerdetails(i, passengers.get(i));
         }
     }
 
+    void Passengerdetails(int i, Passenger passengers) {
+        System.out.println(i + 1 + " \t" + passengers.name + " \t" + passengers.age + "   \t" + passengers.gender + "  \t" + passengers.source + "  \t" + passengers.destination);
+    }
 }

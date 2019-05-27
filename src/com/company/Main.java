@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,8 +20,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner keyBoard = new Scanner(System.in);
+        DisplayDetails details =new DisplayDetails();
         ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Tirusulam", "Meenambakkam"));
-       DisplayDetails. listOfRoutes(routes);
+        details. listOfRoutes(routes);
         System.out.println();
         System.out.print("enter you Source :");
         String source = keyBoard.nextLine();
@@ -29,13 +30,13 @@ public class Main {
         String destination = keyBoard.nextLine();
         System.out.print("enter the number of Passenger :");
         int numberOfPassenger = keyBoard.nextInt();
-        Passenger[] passengers = new Passenger[numberOfPassenger];
-        for (int i = 0; i < passengers.length; i++) {
+        List<Passenger> passengers = new ArrayList<>(numberOfPassenger);
+        for (int i = 0; i < numberOfPassenger; i++) {
             System.out.println("Enter the detail for the passenger " + (i + 1));
             Passenger passengerDetails = Main.userInput(source, destination);
-            passengers[i] = passengerDetails;
+            passengers.add(passengerDetails);
         }
-        DisplayDetails.displayPassangerDetails(passengers);
+        details.displayPassengerDetails(passengers);
     }
 
 }
