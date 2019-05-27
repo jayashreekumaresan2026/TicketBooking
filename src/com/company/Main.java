@@ -14,7 +14,5 @@ public class Main {
             Routes.add("Meenambakkam");
             Displayroutes.listOfRoutes(Routes);
         }
-
-
     }
 
