@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    static Passenger userInput(String source,String destination) {
+    static Passenger userInput(String source, String destination) {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.print("enter your name :");
@@ -17,11 +17,11 @@ public class Main {
         Passenger passengerDetail = new Passenger(name, age, gender, source, destination);
         return passengerDetail;
     }
+
     public static void main(String[] args) {
         Scanner keyBoard = new Scanner(System.in);
-        DisplayRoutes Displayroutes = new DisplayRoutes();
         ArrayList<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Tirusulam", "Meenambakkam"));
-        Displayroutes.listOfRoutes(routes);
+       DisplayDetails. listOfRoutes(routes);
         System.out.println();
         System.out.print("enter you Source :");
         String source = keyBoard.nextLine();
@@ -32,10 +32,11 @@ public class Main {
         Passenger[] passengers = new Passenger[numberOfPassenger];
         for (int i = 0; i < passengers.length; i++) {
             System.out.println("Enter the detail for the passenger " + (i + 1));
-            Passenger passengerDetails = Main.userInput(source,destination);
+            Passenger passengerDetails = Main.userInput(source, destination);
             passengers[i] = passengerDetails;
         }
-        Displayroutes.displayPassangerDetails(passengers);
+        DisplayDetails.displayPassangerDetails(passengers);
     }
+
 }
 
