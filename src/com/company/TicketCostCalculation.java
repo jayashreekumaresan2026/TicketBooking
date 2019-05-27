@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class TicketCostCalculation {
-    int tickCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers) {
+    int tickCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers, int numberOfPassengers) {
         int count = 0;
         int totalCost = 0;
 
@@ -13,7 +13,7 @@ class TicketCostCalculation {
                 count += 1;
             }
         }
-        count += 2;
+        count += 2 * numberOfPassengers;
         for (Passenger passenger : passengers) {
             totalCost += passenger.age <= 12 || passenger.age >= 60 ? count / 2 : count;
         }

@@ -39,7 +39,7 @@ public class Main {
             passengers.add(passengerDetail);
 
         }
-        totalCost= costCalculation.tickCostCalculation(routes, source, destination, passengers);
+        totalCost= costCalculation.tickCostCalculation(routes, source, destination, passengers,numberOfPassenger);
         details.passengerDetails(passengers);
         details.ticketDetails(totalCost, numberOfPassenger);
     }

@@ -25,6 +25,6 @@ class DisplayDetails {
 
     void ticketDetails(int totalCost, int numberOfPassenger) {
         System.out.println("Number of passenger :" + numberOfPassenger);
-        System.out.println("Number of passenger :" + totalCost);
+        System.out.println("Passenger cost :" + totalCost);
     }
 }
