@@ -3,8 +3,8 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-class TicketCostCalculation {
-    int tickCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers, int numberOfPassengers) {
+class Ticket {
+    int ticketCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers, int numberOfPassengers) {
         int count = 0;
         int totalCost = 0;
 
