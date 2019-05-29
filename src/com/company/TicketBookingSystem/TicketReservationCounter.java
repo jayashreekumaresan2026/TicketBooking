@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class TicketReservationCounter {
     static Scanner keyboard = new Scanner(System.in);
-    Passenger getPassengerDetails() {
+
+    public Passenger getPassengerDetails() {
         System.out.print("enter your name :");
         String name = keyboard.nextLine();
         System.out.print("enter your age :");
@@ -15,24 +16,8 @@ public class TicketReservationCounter {
         String gender = keyboard.nextLine();
         return new Passenger(name, age, gender);
     }
-    void showPassengerDetails(List<Ticket> ticketList ){
-        System.out.println("Passenger Details");
-        System.out.println("Name" + "  ||" + "Age" + "  ||" + "Gender" + " ||" + "source" + " ||" + "Destination" );
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        for (Ticket ticket : ticketList) {
-            for (Passenger passenger : ticket.passengerList) {
-                System.out.println(passenger.name + " ||" + passenger.age + "   ||" +
-                        passenger.gender + "  ||" + ticket.source + "  ||" + ticket.destination + "  ||" );
-            }
-        }
-    }
 
-
-    public static void main(String[] args) {
-        TicketReservationCounter ticketReservationCounter = new TicketReservationCounter();
-        Routes route = new Routes();
-        route.routeList();
-        System.out.println();
+    List<Ticket> getTicketDetails() {
         List<Passenger> passengers = new ArrayList<>();
         List<Ticket> tickets = new ArrayList<>();
         System.out.print("enter you Source :");
@@ -44,11 +29,24 @@ public class TicketReservationCounter {
         keyboard.nextLine();
         for (int j = 0; j < numberOfPassenger; j++) {
             System.out.println("Enter the detail for the passengerList :" + (j + 1));
-            passengers.add(ticketReservationCounter.getPassengerDetails());
+            passengers.add(this.getPassengerDetails());
+            Ticket ticket = new Ticket(source, destination, numberOfPassenger, passengers);
+            tickets.add(ticket);
+
         }
-        Ticket ticket = new Ticket(source, destination, numberOfPassenger, passengers);
-        tickets.add(ticket);
-        ticketReservationCounter.showPassengerDetails(tickets);
+        return tickets;
+    }
+
+
+    void showPassengerDetails(List<Ticket> ticketList,List<String> routeList) {
+        System.out.println("Passenger Details");
+        System.out.println("Name" + "  ||" + "Age" + "  ||" + "Gender" + " ||" + "source" + " ||" + "Destination");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        for (Ticket ticket : ticketList) {
+            for (Passenger passenger : ticket.passengerList) {
+                System.out.println(passenger.name + " ||" + passenger.age + "   ||" +
+                        passenger.gender + "  ||" + ticket.source + "  ||" + ticket.destination + "  ||" +ticket.ticketCostCalculation(routeList));
+            }
+        }
     }
 }
-

@@ -2,10 +2,9 @@ package com.company.TicketBookingSystem;
 
 
 class Passenger{
-
     String name;
-    int age;
     String gender;
+    int age;
 
     Passenger(String name, int age, String gender) {
         this.name = name;

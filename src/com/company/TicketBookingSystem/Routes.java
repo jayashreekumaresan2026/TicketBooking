@@ -5,14 +5,16 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 class Routes {
-    void routeList() {
+    List<String> routeList() {
         List<String> routes = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
-        showRoutes(routes);
+        List<String> routeDetails = showRoutes(routes);
+        return routeDetails;
     }
 
-    void showRoutes(List<String> routes) {
+    List<String> showRoutes(List<String> routes) {
         for (String route : routes) {
             System.out.print(" -> " + route);
         }
+        return routes;
     }
 }
