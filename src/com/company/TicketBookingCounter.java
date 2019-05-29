@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class TicketBookingCounter {
     static Scanner keyboard = new Scanner(System.in);
 
-    private static Passenger userInput() {
+    private static Passenger getPassangerDetails() {
         System.out.print("enter your name :");
         String name = keyboard.nextLine();
         System.out.print("enter your age :");
@@ -17,36 +17,43 @@ public class TicketBookingCounter {
         String gender = keyboard.nextLine();
         return new Passenger(name, age, gender);
     }
+    private static Ticket getSingleTicketDetails(int ticketNumber) {
+        System.out.print("enter you Source :");
+        String source = keyboard.nextLine();
+        System.out.print("enter you destination :");
+        String destination = keyboard.nextLine();
+        List<Passenger> passengers = new ArrayList<>();
+        System.out.print("enter the number of Passengers :");
+        int numberOfPassenger = keyboard.nextInt();
+        keyboard.nextLine();
+        for (int j = 0; j < numberOfPassenger; j++) {
+            System.out.println("Enter the detail for the passengerList :" + (j + 1));
+            Passenger passengerDetail = getPassangerDetails();
+            passengers.add(passengerDetail);
+            int length=passengers.size();
+            System.out.println(length);
+        }
+        Ticket ticket = new Ticket(source, destination, numberOfPassenger, ticketNumber, passengers);
+        return ticket;
+    }
+
 
     public static List<Ticket> getTicketDetails(ArrayList<String> routes) {
         List<Ticket> tickets = new ArrayList<>();
         DisplayDetails details = new DisplayDetails();
+        //Get Number of Tickets
         System.out.print("Enter the number of tickets : ");
-        int ticketNumber = (int) (Math.random() * 100);
         int numberOfTickets = Integer.parseInt(keyboard.nextLine());
         for (int i = 0; i < numberOfTickets; i++) {
+            int ticketNumber = (int) (Math.random() * 100);
             System.out.println("Enter the details of the ticket  : " + (i + 1));
-            System.out.print("enter you Source :");
-            String source = keyboard.nextLine();
-            System.out.print("enter you destination :");
-            String destination = keyboard.nextLine();
-            System.out.print("enter the number of Passenger :");
-            int numberOfPassenger = keyboard.nextInt();
-            keyboard.nextLine();
-            List<Passenger> passengers = new ArrayList<>();
-            for (int j = 0; j < numberOfPassenger; j++) {
-                System.out.println("Enter the detail for the passengerList " + (j + 1));
-                Passenger passengerDetail = userInput();
-                passengers.add(passengerDetail);
-
-            }
-            Ticket ticket = new Ticket(source, destination, numberOfPassenger, ticketNumber, passengers);
-            tickets.add(ticket);
+            tickets.add(getSingleTicketDetails(ticketNumber));
             details.passengerDetails(tickets);
             details.ticketDetails(routes, tickets);
         }
         return tickets;
     }
+
 
     public static void main(String[] args) {
         DisplayDetails details = new DisplayDetails();
