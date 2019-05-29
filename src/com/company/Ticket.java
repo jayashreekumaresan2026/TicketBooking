@@ -4,7 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Ticket {
-    int ticketCostCalculation(ArrayList<String> routes, String source, String destination, List<Passenger> passengers, int numberOfPassengers) {
+    static String source;
+    static String destination;
+    static int numberOfPassenger;
+    static int ticketNumber;
+    Passenger passenger;
+
+    Ticket(String source, String destination, int numberOfPassenger, int ticketNumber, Passenger passenger) {
+        this.source = source;
+        this.destination = destination;
+        this.numberOfPassenger = numberOfPassenger;
+        this.ticketNumber = ticketNumber;
+        this.passenger = passenger;
+    }
+
+    static int ticketCostCalculation(ArrayList<String> routes, List<Passenger> passengers) {
         int count = 0;
         int totalCost = 0;
 
@@ -13,7 +27,7 @@ class Ticket {
                 count += 1;
             }
         }
-        count += 2 * numberOfPassengers;
+        count += 2 * numberOfPassenger;
         for (Passenger passenger : passengers) {
             totalCost += passenger.age <= 12 || passenger.age >= 60 ? count / 2 : count;
         }

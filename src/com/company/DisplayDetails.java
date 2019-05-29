@@ -3,7 +3,17 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.company.Ticket.*;
+
 class DisplayDetails {
+    void verifyTicketNumber( int totalCost, int userticketNumber, List<Ticket> ticketDetails) {
+        if (ticketNumber == userticketNumber) {
+            passengerDetails(ticketDetails);
+            ticketDetails(totalCost);
+        } else {
+            System.out.println("Invalid Ticket number");
+        }
+    }
 
     void listOfRoutes(ArrayList<String> Routes) {
         for (String routes : Routes) {
@@ -11,19 +21,22 @@ class DisplayDetails {
         }
     }
 
-    void passengerDetails(List<Passenger> passengers) {
+    void passengerDetails( List<Ticket> ticketdetails) {
         System.out.println("Passenger Details");
-        System.out.println("Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" + "source" + " \t" + "Destination");
-        for (Passenger passenger : passengers) {
+        System.out.println("Name" + "  \t" + "Age" + "  \t" +   "Gender" +   " \t" +
+                "source" + " \t" +   "Destination"+" \t" +   "TicketNumber");
+        for (Ticket passenger : ticketdetails) {
             displayPassengerDetails(passenger);
         }
     }
 
-  private void displayPassengerDetails(Passenger passengers) {
-        System.out.println(passengers.name + " \t" + passengers.age + "   \t" + passengers.gender + "  \t" + passengers.source + "  \t" + passengers.destination);
+    private void displayPassengerDetails(Ticket ticket) {
+        System.out.println(ticket.passenger.name + " \t" + ticket.passenger.age + "   \t" +
+                ticket.passenger.gender + "  \t" + ticket.source + "  \t" + ticket.destination+"  \t" +ticket.ticketNumber);
     }
 
-    void ticketDetails(int totalCost, int numberOfPassenger) {
+
+    void ticketDetails(int totalCost) {
         System.out.println("Number of passenger :" + numberOfPassenger);
         System.out.println("Passenger cost :" + totalCost);
     }
