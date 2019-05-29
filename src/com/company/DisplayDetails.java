@@ -3,15 +3,16 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.company.Ticket.*;
 
 class DisplayDetails {
-    void verifyTicketNumber( int totalCost, int userticketNumber, List<Ticket> ticketDetails) {
-        if (ticketNumber == userticketNumber) {
-            passengerDetails(ticketDetails);
-            ticketDetails(totalCost);
-        } else {
-            System.out.println("Invalid Ticket number");
+    void verifyTicketNumber(ArrayList<String> routes, int userticketNumber, List<Ticket> ticketDetails) {
+        for (Ticket ticket : ticketDetails) {
+            if (ticket.ticketNumber == userticketNumber) {
+                passengerDetails(ticketDetails);
+                ticketDetails(routes, ticketDetails);
+            } else {
+                System.out.println("Invalid Ticket number");
+            }
         }
     }
 
@@ -21,23 +22,25 @@ class DisplayDetails {
         }
     }
 
-    void passengerDetails( List<Ticket> ticketdetails) {
+    void passengerDetails(List<Ticket> ticketList) {
         System.out.println("Passenger Details");
-        System.out.println("Name" + "  \t" + "Age" + "  \t" +   "Gender" +   " \t" +
-                "source" + " \t" +   "Destination"+" \t" +   "TicketNumber");
-        for (Ticket passenger : ticketdetails) {
-            displayPassengerDetails(passenger);
+        System.out.println("Name" + "  \t" + "Age" + "  \t" + "Gender" + " \t" +
+                "source" + " \t" + "Destination" + " \t" + "TicketNumber");
+        for (Ticket tickets : ticketList) {
+            for (int i = 0; i < ticketList.size(); i++)
+                System.out.println(tickets.passengerList.get(i).name + " \t" + tickets.passengerList.get(i).age + "   \t" +
+                        tickets.passengerList.get(i).name + "  \t" + tickets.source + "  \t" + tickets.destination + "  \t" + tickets.ticketNumber);
         }
     }
+//    private void displayPassengerDetails(Ticket ticket) {
+//        System.out.println(ticket.passengerList.get(1).name + " \t" + ticket.passengerList.get(1).age + "   \t" +
+//                ticket.passengerList.get(1).name + "  \t" + ticket.source + "  \t" + ticket.destination + "  \t" + ticket.ticketNumber);
+//    }
 
-    private void displayPassengerDetails(Ticket ticket) {
-        System.out.println(ticket.passenger.name + " \t" + ticket.passenger.age + "   \t" +
-                ticket.passenger.gender + "  \t" + ticket.source + "  \t" + ticket.destination+"  \t" +ticket.ticketNumber);
-    }
 
-
-    void ticketDetails(int totalCost) {
-        System.out.println("Number of passenger :" + numberOfPassenger);
-        System.out.println("Passenger cost :" + totalCost);
+    void ticketDetails(ArrayList<String> routes, List<Ticket> ticketDetails) {
+        for (Ticket ticket : ticketDetails)
+            System.out.println("Number of passengerList :" + ticket.numberOfPassenger);
+//            System.out.println("Passenger cost :" +ticket.t(routes,tickets));
     }
 }

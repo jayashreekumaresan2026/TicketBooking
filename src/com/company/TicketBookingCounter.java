@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class TicketBookingCounter {
     static Scanner keyboard = new Scanner(System.in);
-    static int totalCost;
 
     private static Passenger userInput() {
         System.out.print("enter your name :");
@@ -21,31 +20,30 @@ public class TicketBookingCounter {
 
     public static List<Ticket> getTicketDetails(ArrayList<String> routes) {
         List<Ticket> tickets = new ArrayList<>();
-        List<Passenger> passengers = new ArrayList<>();
         DisplayDetails details = new DisplayDetails();
         System.out.print("Enter the number of tickets : ");
+        int ticketNumber = (int) (Math.random() * 100);
         int numberOfTickets = Integer.parseInt(keyboard.nextLine());
         for (int i = 0; i < numberOfTickets; i++) {
             System.out.println("Enter the details of the ticket  : " + (i + 1));
             System.out.print("enter you Source :");
             String source = keyboard.nextLine();
-            keyboard.nextLine();
             System.out.print("enter you destination :");
             String destination = keyboard.nextLine();
             System.out.print("enter the number of Passenger :");
             int numberOfPassenger = keyboard.nextInt();
             keyboard.nextLine();
+            List<Passenger> passengers = new ArrayList<>();
             for (int j = 0; j < numberOfPassenger; j++) {
-                System.out.println("Enter the detail for the passenger " + (j + 1));
+                System.out.println("Enter the detail for the passengerList " + (j + 1));
                 Passenger passengerDetail = userInput();
                 passengers.add(passengerDetail);
-                int ticketNumber = (int) (Math.random() * 100);
-                Ticket ticket = new Ticket(source, destination, numberOfPassenger, ticketNumber, passengerDetail);
-                tickets.add(ticket);
+
             }
-            totalCost = Ticket.ticketCostCalculation(routes, passengers);
+            Ticket ticket = new Ticket(source, destination, numberOfPassenger, ticketNumber, passengers);
+            tickets.add(ticket);
             details.passengerDetails(tickets);
-            details.ticketDetails(totalCost);
+            details.ticketDetails(routes, tickets);
         }
         return tickets;
     }
@@ -58,6 +56,6 @@ public class TicketBookingCounter {
         List<Ticket> ticketList = TicketBookingCounter.getTicketDetails(routes);
         System.out.println("Enter the ticket number to display :");
         int userTicketNumber = Integer.parseInt(keyboard.nextLine());
-        details.verifyTicketNumber(totalCost, userTicketNumber, ticketList);
+        details.verifyTicketNumber(routes, userTicketNumber, ticketList);
     }
 }
