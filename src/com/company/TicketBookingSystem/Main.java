@@ -9,7 +9,6 @@ public class Main {
         System.out.println();
         List<Ticket> tickets=ticketReservationCounter.getTicketDetails();
         ticketReservationCounter.showPassengerDetails(tickets,routes);
-//        .ticketCostCalculation(tickets,route);
 
     }
 }

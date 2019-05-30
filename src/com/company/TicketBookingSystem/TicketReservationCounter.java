@@ -30,23 +30,19 @@ public class TicketReservationCounter {
         for (int j = 0; j < numberOfPassenger; j++) {
             System.out.println("Enter the detail for the passengerList :" + (j + 1));
             passengers.add(this.getPassengerDetails());
-            Ticket ticket = new Ticket(source, destination, numberOfPassenger, passengers);
-            tickets.add(ticket);
-
         }
+        Ticket ticket = new Ticket(source, destination, numberOfPassenger, passengers);
+        tickets.add(ticket);
         return tickets;
     }
-
-
     void showPassengerDetails(List<Ticket> ticketList,List<String> routeList) {
         System.out.println("Passenger Details");
         System.out.println("Name" + "  ||" + "Age" + "  ||" + "Gender" + " ||" + "source" + " ||" + "Destination");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         for (Ticket ticket : ticketList) {
-            for (Passenger passenger : ticket.passengerList) {
-                System.out.println(passenger.name + " ||" + passenger.age + "   ||" +
-                        passenger.gender + "  ||" + ticket.source + "  ||" + ticket.destination + "  ||" +ticket.ticketCostCalculation(routeList));
-            }
+            ticket.printPassengerList(routeList);
         }
     }
+
+
 }

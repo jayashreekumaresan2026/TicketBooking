@@ -32,4 +32,10 @@ class Ticket {
         }
         return totalCost;
     }
+    public void printPassengerList(List<String> routeList) {
+        for (Passenger passenger : passengerList) {
+            System.out.println(passenger.name + " ||" + passenger.age + "   ||" +
+                    passenger.gender + "  ||" + source + "  ||" + destination + "  ||" +ticketCostCalculation(routeList));
+        }
+    }
 }
