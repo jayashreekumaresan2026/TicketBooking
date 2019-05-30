@@ -1,48 +1,38 @@
 package com.company.TicketBookingSystem;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class TicketReservationCounter {
-    static Scanner keyboard = new Scanner(System.in);
+    Routes routes;
 
-    public Passenger getPassengerDetails() {
-        System.out.print("enter your name :");
-        String name = keyboard.nextLine();
-        System.out.print("enter your age :");
-        int age = Integer.parseInt(keyboard.nextLine());
-        System.out.print("enter your gender :");
-        String gender = keyboard.nextLine();
-        return new Passenger(name, age, gender);
+    TicketReservationCounter(Routes route) {
+        this.routes = route;
     }
 
-    List<Ticket> getTicketDetails() {
-        List<Passenger> passengers = new ArrayList<>();
-        List<Ticket> tickets = new ArrayList<>();
-        System.out.print("enter you Source :");
-        String source = keyboard.nextLine();
-        System.out.print("enter you destination :");
-        String destination = keyboard.nextLine();
-        System.out.print("enter the number of Passengers :");
-        int numberOfPassenger = keyboard.nextInt();
-        keyboard.nextLine();
-        for (int j = 0; j < numberOfPassenger; j++) {
-            System.out.println("Enter the detail for the passengerList :" + (j + 1));
-            passengers.add(this.getPassengerDetails());
-        }
-        Ticket ticket = new Ticket(source, destination, numberOfPassenger, passengers);
-        tickets.add(ticket);
-        return tickets;
-    }
-    void showPassengerDetails(List<Ticket> ticketList,List<String> routeList) {
-        System.out.println("Passenger Details");
-        System.out.println("Name" + "  ||" + "Age" + "  ||" + "Gender" + " ||" + "source" + " ||" + "Destination");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        for (Ticket ticket : ticketList) {
-            ticket.printPassengerList(routeList);
-        }
+    void showRoute() {
+        String routes = this.routes.getterRoute();
+        System.out.println(routes);
     }
 
 
+    Ticket bookTicket(String source,String destination,List<Passenger> passenger){
+        Ticket ticket = new Ticket(source,destination,passenger);
+      return ticket;
+    }
+
+//    int ticketCostCalculation(String route,String source,String destination,List<Passenger> passengers) {
+//        int count = 0;
+//        int totalCost=0;
+//        for (String routes : route) {
+//            if ((!routes.equalsIgnoreCase(source)) && (!routes.equalsIgnoreCase(destination))) {
+//                count += 1;
+//            }
+//        }
+//        count += 2 * passengers.size();
+//        System.out.println(passengers.size());
+//        for (Passenger passenger : passengers) {
+//            totalCost=0;
+//            totalCost += passenger.age <= 12 || passenger.age >= 60 ? count / 2 : count;
+//        }
+//        return totalCost;
+//    }
 }
