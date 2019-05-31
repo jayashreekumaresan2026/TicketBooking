@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-class Routes {
+class Route {
     private List<String> route;
 
-    Routes() {
+    Route() {
         this.route = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
     }
 
@@ -17,5 +17,17 @@ class Routes {
             place += route.get(i) + "->";
         }
         return place;
+    }
+
+    int routeCalculation(String source, String destination) {
+        int count = 0;
+        for (String route : route) {
+            if ((!route.equalsIgnoreCase(source)) && (!route.equalsIgnoreCase(destination))) {
+                count += 1;
+            }
+        }
+        System.out.println( "firstcount"+count);
+        return count;
+
     }
 }
