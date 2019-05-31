@@ -24,14 +24,19 @@ class Passenger {
         return this.gender;
     }
 
-    String checkPassengerAge() {
-        String category = " ";
-        if (age <= 12 || age >= 60) {
-            category = "halfTicket";
-            return category;
+    boolean isChild() {
+        if (age <= 12) {
+            return true;
         } else {
-            category = "fullTicket";
-            return category;
+            return false;
         }
+    }
+    boolean isAgedPerson(){
+       if (age >= 60) {
+           return true;
+       }
+       else {
+           return false;
+       }
     }
 }

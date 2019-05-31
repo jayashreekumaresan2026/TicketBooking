@@ -1,8 +1,8 @@
 package com.company.TicketBookingSystem;
 
-import java.util.List;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Route {
     private List<String> route;
@@ -19,15 +19,17 @@ class Route {
         return place;
     }
 
-    int routeCalculation(String source, String destination) {
-        int count = 0;
-        for (String route : route) {
-            if ((!route.equalsIgnoreCase(source)) && (!route.equalsIgnoreCase(destination))) {
-                count += 1;
+    int stationCount(String source, String destination) {
+        int count, sourceIndex = 0, destinationIndex = 0;
+        for (int i = 0; i < route.size(); i++) {
+            if (route.get(i).equalsIgnoreCase(source)) {
+                sourceIndex = i;
+            } else if (route.get(i).equalsIgnoreCase(destination)) {
+                destinationIndex = i;
             }
-        }
-        System.out.println( "firstcount"+count);
-        return count;
 
+        }
+        count = Math.abs(destinationIndex - sourceIndex) + 1;
+        return count;
     }
 }
