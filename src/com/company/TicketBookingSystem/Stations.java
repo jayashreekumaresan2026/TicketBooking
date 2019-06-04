@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Route {
+class Stations {
     private List<String> route;
 
-    Route() {
+    Stations() {
         this.route = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
     }
 
-    String getterRoute() {
+    String getSations() {
         String place = " ";
         for (int i = 0; i < this.route.size(); i++) {
             place += route.get(i) + "->";
