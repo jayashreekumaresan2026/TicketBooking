@@ -31,7 +31,6 @@ public class TicketBookingSystem {
         for (int i = 0; i < numberOfTickets; i++) {
             List<Passenger> passengers = new ArrayList<>();
             System.out.println("Details of the ticket  :" + (i + 1));
-            int ticketNumber = (i + 1);
             System.out.print("enter you Source :");
             String source = keyboard.nextLine();
             System.out.print("enter you destination :");
@@ -43,7 +42,7 @@ public class TicketBookingSystem {
                 System.out.println("Enter the detail for the passengerList :" + (j + 1));
                 passengers.add(ticketBookingSystem.getPassengerDetails());
             }
-            List<Ticket> tickets = ticketReservationCounter.bookTicket(source, destination, passengers, ticketNumber);
+            List<Ticket> tickets = ticketReservationCounter.bookTicket(source, destination, passengers);
             for (int j = 0; j < tickets.size(); j++) {
                 System.out.println(tickets.get(j).toString());
             }

@@ -16,13 +16,13 @@ public class TicketReservationCounter {
         System.out.println(routes);
     }
 
-    List<Ticket> bookTicket(String source, String destination, List<Passenger> passenger, int ticketNumber) {
+    List<Ticket> bookTicket(String source, String destination, List<Passenger> passenger) {
         int totalCost;
         List<Ticket> tickets = new ArrayList<>();
         Route routes = new Route();
         int stationCount = routes.stationCount(source, destination);
         totalCost = ticketCostCalculation(stationCount, passenger);
-        Ticket ticket = new Ticket(source, destination, passenger, totalCost, ticketNumber);
+        Ticket ticket = new Ticket(source, destination, passenger, totalCost);
         tickets.add(ticket);
         return tickets;
     }
