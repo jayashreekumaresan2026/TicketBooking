@@ -45,11 +45,8 @@ public class TicketBookingSystem {
             }
             List<Ticket> tickets = ticketReservationCounter.bookTicket(source, destination, passengers, ticketNumber);
             for (int j = 0; j < tickets.size(); j++) {
-                System.out.println(tickets.get(i).toString());
+                System.out.println(tickets.get(j).toString());
             }
         }
-        System.out.println("Enter the ticketNumber to Display ticket");
-        int ticketNumber = Integer.parseInt(keyboard.nextLine());
-
     }
 }
