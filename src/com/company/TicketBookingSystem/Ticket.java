@@ -24,9 +24,9 @@ class Ticket {
         ticket += "Destination :" + this.destination + "\n";
         ticket += "Number Of passengers :" + this.numberOfPassenger + "\n";
         ticket += "Name\tAge\tGender\n";
-        for (Passenger passenger : passengerList) {
-            ticket += passenger.getName() + " \t" + passenger.getAge() + "   \t" + passenger.getGender() + "\n";
-        }
+         for(int i=0;i<passengerList.size();i++) {
+                ticket += passengerList.get(i);
+            }
         ticket += "TotalCost : " + this.totalCost;
         return ticket;
     }
