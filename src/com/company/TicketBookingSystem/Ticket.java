@@ -20,13 +20,12 @@ class Ticket {
     @Override
     public String toString() {
         String ticket =" ";
-        ticket  ="-------------------Ticket Details--------------------------"+"\n";
         ticket += "Source :" + this.source + "\n";
         ticket += "Destination :" + this.destination + "\n";
         ticket += "Number Of passengers :" + this.numberOfPassenger + "\n";
         ticket += "Name\tAge\tGender\n";
-        for(int i=0;i<passengerList.size();i++) {
-            ticket += passengerList.get(i).toString();
+        for (Passenger passenger : passengerList) {
+            ticket += passenger.getName() + " \t" + passenger.getAge() + "   \t" + passenger.getGender() + "\n";
         }
         ticket += "TotalCost : " + this.totalCost;
         return ticket;

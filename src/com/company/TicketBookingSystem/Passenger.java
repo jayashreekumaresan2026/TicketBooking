@@ -12,6 +12,18 @@ class Passenger {
         this.gender = gender;
     }
 
+    String getName() {
+        return this.name;
+    }
+
+    int getAge() {
+        return this.age;
+    }
+
+    String getGender() {
+        return this.gender;
+    }
+
     boolean isChild() {
         if (age <= 12) {
             return true;
@@ -27,11 +39,4 @@ class Passenger {
            return false;
        }
     }
-    @Override
-    public String toString() {
-      String  passenger="";
-            passenger= name+ " \t" + age + "   \t" + gender+ "\n";
-            return passenger;
-        }
-
 }
