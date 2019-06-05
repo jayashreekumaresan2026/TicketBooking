@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketReservationCounter {
-    Stations route;
+    Route route;
     final int stationCost=2;
 
-    TicketReservationCounter(Stations route) {
+    TicketReservationCounter(Route route) {
         this.route = route;
     }
 
     void showRoute() {
-        String routes = this.route.getSations();
+        String routes = this.route.getterRoute();
         System.out.println(routes);
     }
 
     List<Ticket> bookTicket(String source, String destination, List<Passenger> passenger) {
         int totalCost;
         List<Ticket> tickets = new ArrayList<>();
-        Stations routes = new Stations();
+        Route routes = new Route();
         int stationCount = routes.stationCount(source, destination);
         totalCost = ticketCostCalculation(stationCount, passenger);
         Ticket ticket = new Ticket(source, destination, passenger, totalCost);

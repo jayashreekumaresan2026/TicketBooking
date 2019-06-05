@@ -21,7 +21,7 @@ public class TicketBookingSystem {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        Stations route = new Stations();
+        Route route = new Route();
         TicketBookingSystem ticketBookingSystem = new TicketBookingSystem();
         TicketReservationCounter ticketReservationCounter = new TicketReservationCounter(route);
         ticketReservationCounter.showRoute();
