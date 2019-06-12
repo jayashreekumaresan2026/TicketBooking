@@ -11,10 +11,12 @@ class Route {
         this.route = new ArrayList<>(Arrays.asList("Tambaram", "Sanatorium", "Chrompet", "Pallavaram", "Tirusulam", "Meenambakkam"));
     }
 
-    String getterRoute() {
+    String getRoute() {
         String place = " ";
         for (int i = 0; i < this.route.size(); i++) {
-            place += route.get(i) + "->";
+            place += route.get(i);
+            if(this.route.size()-1!=i)
+                place += "->";
         }
         return place;
     }
