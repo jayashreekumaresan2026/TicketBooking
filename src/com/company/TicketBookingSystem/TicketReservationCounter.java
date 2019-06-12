@@ -12,7 +12,7 @@ public class TicketReservationCounter {
     }
 
     void showRoute() {
-        String routes = this.route.getterRoute();
+        String routes = this.route.getRoute();
         System.out.println(routes);
     }
 
