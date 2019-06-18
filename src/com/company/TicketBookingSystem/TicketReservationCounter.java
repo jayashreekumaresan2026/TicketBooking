@@ -1,11 +1,10 @@
 package com.company.TicketBookingSystem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TicketReservationCounter {
     Route route;
-    final int stationCost=2;
+    final int stationCost = 2;
 
     TicketReservationCounter(Route route) {
         this.route = route;
@@ -16,15 +15,13 @@ public class TicketReservationCounter {
         System.out.println(routes);
     }
 
-    List<Ticket> bookTicket(String source, String destination, List<Passenger> passenger) {
+    Ticket bookTicket(String source, String destination, List<Passenger> passenger) {
         int totalCost;
-        List<Ticket> tickets = new ArrayList<>();
         Route routes = new Route();
         int stationCount = routes.stationCount(source, destination);
         totalCost = ticketCostCalculation(stationCount, passenger);
         Ticket ticket = new Ticket(source, destination, passenger, totalCost);
-        tickets.add(ticket);
-        return tickets;
+        return ticket;
     }
 
     int ticketCostCalculation(int stationCount, List<Passenger> passengers) {
