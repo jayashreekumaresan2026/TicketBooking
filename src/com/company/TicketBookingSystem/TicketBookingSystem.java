@@ -42,14 +42,13 @@ public class TicketBookingSystem {
                 passengers.add(ticketBookingSystem.getPassengerDetails());
             }
             ticketBookingSystem.displayPassengerDetails(passengers, destination, source);
-            List<Ticket> tickets = ticketReservationCounter.bookTicket(source, destination, passengers);
-            for (int j = 0; j < tickets.size(); j++) {
+            Ticket tickets = ticketReservationCounter.bookTicket(source, destination, passengers);
                 System.out.println("-------Ticket Details--------");
                 System.out.println("Ticket Number :" + (i + 1));
-                System.out.println(tickets.get(j).toString());
+                System.out.println(tickets.toString());
             }
         }
-    }
+
 
     void displayPassengerDetails(List<Passenger> passengerList, String source, String destination) {
         String passengers = " ";
