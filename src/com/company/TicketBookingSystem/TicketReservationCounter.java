@@ -1,7 +1,6 @@
 package com.company.TicketBookingSystem;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class TicketReservationCounter {
     Route route;
@@ -41,8 +40,32 @@ public class TicketReservationCounter {
         for (int i = 0; i < ticketList.size(); i++) {
             if (userInput == (i + 1)) {
                 System.out.println(ticketList.get(i).toString());
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
             }
         }
     }
 
+    void DisplayListOfTickets(List<Ticket> tickets) {
+        for (int i = 0; i < tickets.size(); i++) {
+            System.out.println(tickets.get(i).toString());
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+        }
+    }
+
+    void deleteParticularTickets(List<Ticket> tickets, int userInput) {
+        for (int i = 0; i < tickets.size(); i++) {
+            if (userInput == (i + 1)) {
+                System.out.println(tickets.remove(tickets.get(i)));
+            }
+        }
+        if (tickets.size() > 1) {
+            for (int i = 0; i < tickets.size(); i++) {
+                System.out.println(tickets.get(i).toString());
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+            }
+        } else {
+            System.out.println("No Ticket available");
+        }
+    }
 }
+
