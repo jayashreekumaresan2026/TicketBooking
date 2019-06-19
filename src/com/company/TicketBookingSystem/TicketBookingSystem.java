@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class TicketBookingSystem {
     Scanner keyboard = new Scanner(System.in);
     Passenger getPassengerDetails() {
-        System.out.print("enter your name :");
+        System.out.print("Enter your name :");
         String name = keyboard.nextLine();
-        System.out.print("enter your age :");
+        System.out.print("Enter your age :");
         int age = Integer.parseInt(keyboard.nextLine());
-        System.out.print("enter your gender :");
+        System.out.print("Enter your gender :");
         String gender = keyboard.nextLine();
         return new Passenger(name, age, gender);
     }
@@ -31,11 +31,11 @@ public class TicketBookingSystem {
         for (int i = 0; i < numberOfTickets; i++) {
             List<Passenger> passengers = new ArrayList<>();
             System.out.println("Details of the ticket  :" + (i + 1));
-            System.out.print("enter you Source :");
+            System.out.print("Enter you Source :");
             String source = keyboard.nextLine();
-            System.out.print("enter you destination :");
+            System.out.print("Enter you destination :");
             String destination = keyboard.nextLine();
-            System.out.print("enter the number of Passengers :");
+            System.out.print("Enter the number of Passengers :");
             int numberOfPassenger = keyboard.nextInt();
             keyboard.nextLine();
             for (int j = 0; j < numberOfPassenger; j++) {
