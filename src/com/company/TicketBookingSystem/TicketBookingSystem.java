@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class TicketBookingSystem {
     Scanner keyboard = new Scanner(System.in);
+
     Passenger getPassengerDetails() {
         System.out.print("Enter your name :");
         String name = keyboard.nextLine();
@@ -24,7 +25,7 @@ public class TicketBookingSystem {
         TicketBookingSystem ticketBookingSystem = new TicketBookingSystem();
         TicketReservationCounter ticketReservationCounter = new TicketReservationCounter(route);
         ticketReservationCounter.showRoute();
-        HashMap<Integer,Ticket> tickets=new HashMap<>();
+        List<Ticket>  ticketList=new ArrayList<>();
         System.out.print("Enter number of tickets :");
         int numberOfTickets = keyboard.nextInt();
         keyboard.nextLine();
@@ -44,26 +45,31 @@ public class TicketBookingSystem {
             }
             ticketBookingSystem.displayPassengerDetails(passengers, destination, source);
             int ticketNumber = (i + 1);
-            Ticket ticket = ticketReservationCounter.bookTicket(source, destination, passengers);
+            Ticket ticket = ticketReservationCounter.bookTicket(source, destination, passengers,ticketNumber);
             System.out.println("-------Ticket Details--------");
-            System.out.println("Ticket Number :" + ticketNumber);
             System.out.println(ticket.toString());
-            tickets.put(ticketNumber,ticket);
+            ticketList.add(ticket);
         }
-            System.out.println("Enter the ticket number to display the ticket");
-            int userInput=keyboard.nextInt();
-            ticketReservationCounter.selectTicketToDisplay(userInput,tickets);
-        }
-
-        void displayPassengerDetails(List<Passenger> passengerList, String source, String destination) {
-            String passengers = " ";
-            passengers = "----------Passenger details-------------------" + "\n";
-            passengers += "Source :" + source + "\n";
-            passengers += "Destination :" + destination + "\n";
-            passengers += "Name\tAge\tGender\n";
-            for (int i = 0; i < passengerList.size(); i++) {
-                passengers += passengerList.get(i).toString();
-            }System.out.println(passengers);
+        System.out.println("Select the option :");
+        System.out.println(" 1.Enter the ticket number to display the ticket :");
+        System.out.println(" 2.Get all the ticket detail :");
+        System.out.println(" 3.Delete the ticket :");
+        System.out.println("Enter your choice");
+        int choice = keyboard.nextInt();
+        System.out.println("Enter the number to display or delete the ticket");
+        int userInput = keyboard.nextInt();
+        ticketReservationCounter.selectTicketToDisplay(userInput, ticketList,choice);
     }
 
+    void displayPassengerDetails(List<Passenger> passengerList, String source, String destination) {
+        String passengers = " ";
+        passengers = "----------Passenger details-------------------" + "\n";
+        passengers += "Source :" + source + "\n";
+        passengers += "Destination :" + destination + "\n";
+        passengers += "Name\tAge\tGender\n";
+        for (int i = 0; i < passengerList.size(); i++) {
+            passengers += passengerList.get(i).toString();
+        }
+        System.out.println(passengers);
+    }
 }
