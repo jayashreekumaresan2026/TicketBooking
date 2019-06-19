@@ -1,5 +1,5 @@
 package com.company.TicketBookingSystem;
-
+import java.util.HashMap;
 import java.util.List;
 
 public class TicketReservationCounter {
@@ -32,7 +32,16 @@ public class TicketReservationCounter {
                 finalCost += routeCost / 2;
             } else {
                 finalCost += routeCost;
+
             }
         return finalCost;
+    }
+
+    void selectTicketToDisplay(int userInput, HashMap<Integer, Ticket> tickets) {
+        for (Integer key : tickets.keySet()) {
+            if (key == userInput) {
+                System.out.println("Ticket" + tickets.get(key));
+            }
+        }
     }
 }
