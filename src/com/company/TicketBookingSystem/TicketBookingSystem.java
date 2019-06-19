@@ -1,7 +1,6 @@
 package com.company.TicketBookingSystem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.lang.String;
 import java.util.Scanner;
@@ -48,17 +47,12 @@ public class TicketBookingSystem {
             Ticket ticket = ticketReservationCounter.bookTicket(source, destination, passengers,ticketNumber);
             System.out.println("-------Ticket Details--------");
             System.out.println(ticket.toString());
+            System.out.println("------------------------------");
             ticketList.add(ticket);
         }
-        System.out.println("Select the option :");
-        System.out.println(" 1.Enter the ticket number to display the ticket :");
-        System.out.println(" 2.Get all the ticket detail :");
-        System.out.println(" 3.Delete the ticket :");
-        System.out.println("Enter your choice");
-        int choice = keyboard.nextInt();
-        System.out.println("Enter the number to display or delete the ticket");
-        int userInput = keyboard.nextInt();
-        ticketReservationCounter.selectTicketToDisplay(userInput, ticketList,choice);
+        System.out.println("Enter the ticketNumber to display the ticket");
+        int userInput=keyboard.nextInt();
+        ticketReservationCounter.ticketOption(ticketList,userInput);
     }
 
     void displayPassengerDetails(List<Passenger> passengerList, String source, String destination) {
