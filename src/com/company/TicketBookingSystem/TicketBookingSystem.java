@@ -53,32 +53,41 @@ public class TicketBookingSystem {
         System.out.print("Enter the ticketNumber to display the ticket :");
         int userInput = keyboard.nextInt();
         ticketReservationCounter.ticketOption(ticketList, userInput);
-        System.out.println("Select the option :");
-        System.out.println(" 1.Enter the ticket number to display the ticket :");
-        System.out.println(" 2.Get all the ticket detail :");
-        System.out.println(" 3.Delete the ticket :");
-        System.out.print("Enter your choice :");
-        int choice = keyboard.nextInt();
-        switch (choice) {
-            case 1: {
-                System.out.print("Enter the ticketNumber to display the ticket :");
-                int input = keyboard.nextInt();
-                ticketReservationCounter.ticketOption(ticketList, input);
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
-            }
-            break;
-            case 2:{
-                System.out.println("Tickets are..........");
-                ticketReservationCounter.DisplayListOfTickets(ticketList);
+        while (true) {
+            System.out.println("Select the option :");
+            System.out.println(" 1.Enter the ticket number to display the ticket :");
+            System.out.println(" 2.Get all the ticket detail :");
+            System.out.println(" 3.Delete the ticket :");
+            System.out.println(" 4.exit ");
+            System.out.print("Enter your choice :");
+            int choice = keyboard.nextInt();
+            switch (choice) {
+                case 1: {
+                    System.out.print("Enter the ticketNumber to display the ticket :");
+                    int input = keyboard.nextInt();
+                    if (input <= ticketList.size()) {
+                        ticketReservationCounter.ticketOption(ticketList, input);
+                        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    } else {
+                        System.out.println("Invalid ticket Number");
+                    }
+                }
+                break;
+                case 2: {
+                    System.out.println("Tickets are..........");
+                    ticketReservationCounter.DisplayListOfTickets(ticketList);
 
+                }
+                break;
+                case 3: {
+                    System.out.print("Enter the ticketNumber to delete the ticket :");
+                    int input = keyboard.nextInt();
+                    ticketReservationCounter.deleteParticularTickets(ticketList, input);
+                }
+                break;
+                case 4:
+                    System.exit(0);
             }
-            break;
-            case 3:{
-                System.out.print("Enter the ticketNumber to delete the ticket :" );
-                int input = keyboard.nextInt();
-                ticketReservationCounter.deleteParticularTickets(ticketList,input);
-            }
-            break;
         }
     }
 
