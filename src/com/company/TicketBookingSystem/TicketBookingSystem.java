@@ -24,7 +24,7 @@ public class TicketBookingSystem {
         TicketBookingSystem ticketBookingSystem = new TicketBookingSystem();
         TicketReservationCounter ticketReservationCounter = new TicketReservationCounter(route);
         ticketReservationCounter.showRoute();
-        List<Ticket>  ticketList=new ArrayList<>();
+        List<Ticket> ticketList = new ArrayList<>();
         System.out.print("Enter number of tickets :");
         int numberOfTickets = keyboard.nextInt();
         keyboard.nextLine();
@@ -44,15 +44,42 @@ public class TicketBookingSystem {
             }
             ticketBookingSystem.displayPassengerDetails(passengers, destination, source);
             int ticketNumber = (i + 1);
-            Ticket ticket = ticketReservationCounter.bookTicket(source, destination, passengers,ticketNumber);
+            Ticket ticket = ticketReservationCounter.bookTicket(source, destination, passengers, ticketNumber);
             System.out.println("-------Ticket Details--------");
             System.out.println(ticket.toString());
-            System.out.println("------------------------------");
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
             ticketList.add(ticket);
         }
-        System.out.println("Enter the ticketNumber to display the ticket");
-        int userInput=keyboard.nextInt();
-        ticketReservationCounter.ticketOption(ticketList,userInput);
+        System.out.print("Enter the ticketNumber to display the ticket :");
+        int userInput = keyboard.nextInt();
+        ticketReservationCounter.ticketOption(ticketList, userInput);
+        System.out.println("Select the option :");
+        System.out.println(" 1.Enter the ticket number to display the ticket :");
+        System.out.println(" 2.Get all the ticket detail :");
+        System.out.println(" 3.Delete the ticket :");
+        System.out.print("Enter your choice :");
+        int choice = keyboard.nextInt();
+        switch (choice) {
+            case 1: {
+                System.out.print("Enter the ticketNumber to display the ticket :");
+                int input = keyboard.nextInt();
+                ticketReservationCounter.ticketOption(ticketList, input);
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
+            }
+            break;
+            case 2:{
+                System.out.println("Tickets are..........");
+                ticketReservationCounter.DisplayListOfTickets(ticketList);
+
+            }
+            break;
+            case 3:{
+                System.out.print("Enter the ticketNumber to delete the ticket :" );
+                int input = keyboard.nextInt();
+                ticketReservationCounter.deleteParticularTickets(ticketList,input);
+            }
+            break;
+        }
     }
 
     void displayPassengerDetails(List<Passenger> passengerList, String source, String destination) {
