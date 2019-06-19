@@ -1,6 +1,7 @@
 package com.company.TicketBookingSystem;
-import java.util.HashMap;
+
 import java.util.List;
+import java.util.Scanner;
 
 public class TicketReservationCounter {
     Route route;
@@ -15,12 +16,12 @@ public class TicketReservationCounter {
         System.out.println(routes);
     }
 
-    Ticket bookTicket(String source, String destination, List<Passenger> passenger) {
+    Ticket bookTicket(String source, String destination, List<Passenger> passenger, int ticketNumber) {
         int totalCost;
         Route routes = new Route();
         int stationCount = routes.stationCount(source, destination);
         totalCost = ticketCostCalculation(stationCount, passenger);
-        Ticket ticket = new Ticket(source, destination, passenger, totalCost);
+        Ticket ticket = new Ticket(source, destination, passenger, totalCost, ticketNumber);
         return ticket;
     }
 
@@ -32,16 +33,16 @@ public class TicketReservationCounter {
                 finalCost += routeCost / 2;
             } else {
                 finalCost += routeCost;
-
             }
         return finalCost;
     }
 
-    void selectTicketToDisplay(int userInput, HashMap<Integer, Ticket> tickets) {
-        for (Integer key : tickets.keySet()) {
-            if (key == userInput) {
-                System.out.println("Ticket" + tickets.get(key));
+    void ticketOption(List<Ticket> ticketList, int userInput) {
+        for (int i = 0; i < ticketList.size(); i++) {
+            if (userInput == (i + 1)) {
+                System.out.println(ticketList.get(i).toString());
             }
         }
     }
+
 }
